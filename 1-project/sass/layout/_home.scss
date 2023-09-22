@@ -1,0 +1,94 @@
+
+:root {
+    --body : white;
+    
+    --box-shadow-1 : 0 0 5px 1px black;
+    --box-shadow-2 : 0 0 10px 2px black;
+    --box-shadow-3 : 0 0 15px 3px black;
+
+    --padding-1 : 0.2rem 0.6rem;
+    --padding-2 : 1rem;
+
+    --border-radius-1 : 0.2rem;
+    --border-radius-2 : 0.6rem;
+    --border-radius-3 : 1rem;
+
+    --width-form : min(calc(100vw - 2rem),400px);
+
+    --bg-Blue : rgb(96, 147, 255);
+
+    --txt-clr-White : rgb(255, 255, 255);
+
+    --ff-Franklin : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    --ff-Segoe : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    --fs-1 : 0.8rem;
+    --fs-2 : 1rem;
+    --fs-3 : 1.2rem;
+}
+
+:root:has(body.night) {
+    --body : black;
+}
+
+body {
+    background-color: rgb(180, 180, 255);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    text-align: center;
+    font-family: var(--ff-Franklin);
+
+    form {
+        box-shadow: var(--box-shadow-1),var(--box-shadow-2);
+        padding: var(--padding-2);
+        border-radius: var(--border-radius-3);
+        width: var(--width-form);
+
+        input {
+            padding: var(--padding-1);
+            border-radius: var(--border-radius-1); 
+            width: 100%;       
+        }
+
+        .warning-info {
+            font-size: var(--fs-1);
+            font-family: var(--ff-Segoe);
+        }
+
+        #submitBtn {
+            background-color: var(--bg-Blue);
+            color: var(--txt-clr-White);
+        }
+
+        a {
+            justify-self: center;
+        }
+    }
+
+    section {
+        padding: var(--padding-2);
+        box-shadow: var(--box-shadow-1);
+        border-radius: var(--border-radius-2);
+
+        button {
+            padding: var(--padding-1);
+            border-radius: var(--border-radius-1);
+        }
+    }
+}
+
+.grid {
+    display: grid;
+    justify-items: stretch;
+    gap: 1rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

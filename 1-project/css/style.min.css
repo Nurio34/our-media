@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul[role=list],
+ol[role=list],
+ul,
+ol,
+dl {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+img, picture {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+a {
+  background-color: transparent;
+}
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+img {
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  padding: 0; /* 2 */
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+:root {
+  --body: white;
+  --box-shadow-1: 0 0 5px 1px black;
+  --box-shadow-2: 0 0 10px 2px black;
+  --box-shadow-3: 0 0 15px 3px black;
+  --padding-1: 0.2rem 0.6rem;
+  --padding-2: 1rem;
+  --border-radius-1: 0.2rem;
+  --border-radius-2: 0.6rem;
+  --border-radius-3: 1rem;
+  --width-form: min(calc(100vw - 2rem),400px);
+  --bg-Blue: rgb(96, 147, 255);
+  --txt-clr-White: rgb(255, 255, 255);
+  --ff-Franklin: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  --ff-Segoe: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fs-1: 0.8rem;
+  --fs-2: 1rem;
+  --fs-3: 1.2rem;
+}
+
+:root:has(body.night) {
+  --body: black;
+}
+
+body {
+  background-color: rgb(180, 180, 255);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  gap: 1rem;
+  text-align: center;
+  font-family: var(--ff-Franklin);
+}
+body form {
+  box-shadow: var(--box-shadow-1), var(--box-shadow-2);
+  padding: var(--padding-2);
+  border-radius: var(--border-radius-3);
+  width: var(--width-form);
+}
+body form input {
+  padding: var(--padding-1);
+  border-radius: var(--border-radius-1);
+  width: 100%;
+}
+body form .warning-info {
+  font-size: var(--fs-1);
+  font-family: var(--ff-Segoe);
+}
+body form #submitBtn {
+  background-color: var(--bg-Blue);
+  color: var(--txt-clr-White);
+}
+body form a {
+  justify-self: center;
+}
+body section {
+  padding: var(--padding-2);
+  box-shadow: var(--box-shadow-1);
+  border-radius: var(--border-radius-2);
+}
+body section button {
+  padding: var(--padding-1);
+  border-radius: var(--border-radius-1);
+}
+
+.grid {
+  display: grid;
+  justify-items: stretch;
+  gap: 1rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  transition: 0.2s;
+}
+button:active {
+  transform: scale(0.9);
+}
+
+.ripple-btn {
+  background-color: lightgray;
+  box-shadow: 0px 2px 10px -3px black;
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+.ripple-btn:hover .bg {
+  transform: scale(1);
+}
+.ripple-btn .bg {
+  background: linear-gradient(45deg, purple, pink, blue);
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transform: scale(0);
+  transition: 0.1s;
+}
+.ripple-btn p {
+  position: relative;
+  z-index: 1;
+}
+
+.special-heading {
+  font-variant: small-caps;
+  position: relative;
+  color: white;
+  text-align: center;
+  line-height: 1;
+  filter: drop-shadow(0 0 5px white);
+}
+.special-heading::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 3px;
+  background-color: rgb(74, 74, 240);
+  bottom: -0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}/*# sourceMappingURL=style.min.css.map */
