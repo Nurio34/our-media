@@ -20,6 +20,8 @@ const form = document.querySelector("form")
             const data = res.data
                 localStorage.setItem("token", data.token)
 
+                    console.log(data);
+
                 window.location.href = "/user"
 
         } catch (error) {

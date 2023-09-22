@@ -6,8 +6,8 @@
     --box-shadow-2 : 0 0 10px 2px black;
     --box-shadow-3 : 0 0 15px 3px black;
 
-    --padding-1 : 0.2rem 0.6rem;
-    --padding-2 : 1rem;
+    --padding-1 : min(1vw,6px) min(4vw,30px);
+    --padding-2 : min(5vw,2rem);
 
     --border-radius-1 : 0.2rem;
     --border-radius-2 : 0.6rem;
@@ -31,7 +31,11 @@
     --body : black;
 }
 
-body {
+//** LOGIN ve REGISTER SAYFALARI
+
+body#login,
+body#register {
+
     background-color: rgb(180, 180, 255);
     display: grid;
     justify-content: center;
@@ -79,6 +83,152 @@ body {
     }
 }
 
+//** USER SAYFASI
+
+body#user {
+
+    nav {
+        background-color: white;
+
+        &.permenent {
+            position: fixed;
+            bottom: 0;
+            justify-content: space-around;
+        }
+
+        &.max800show {
+            position: fixed;
+            top: 0;
+            justify-content: space-between;
+            gap: min(2vw,2rem);
+
+            .searchWrapper {
+                position: relative;
+                width: min(100vw,562px);
+
+                svg {
+                    position: absolute;
+                    top: 50%; left: 0; transform: translate(50%,-50%);
+                    color: gray;
+                }
+
+                #searchInp {
+                    padding: var(--padding-1);
+                    border-radius: var(--border-radius-1);
+                    width: 100%;
+                    background-color: lightgray;
+                    border: none;
+                }
+            }
+        }
+
+        .max800none {
+            display: none;
+        }
+
+        box-shadow: var(--box-shadow-1);
+        width: 100vw;
+        padding: var(--padding-1);
+
+        .btnGroup {
+            transition: 0.2s;
+            cursor: pointer;
+            
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            p {
+                display: none;
+            }
+        }
+
+        img {
+            width: 30px;
+            border-radius: 50%;
+        }
+    }
+
+    main {
+        padding: var(--padding-2);
+        padding-block-start: 4rem;
+        display: grid;
+        justify-content: center;
+        gap: min(3vh);
+
+
+        .wrapper {
+            width: max(30vw,calc,375px);
+
+            .profile-wrapper {
+                justify-content: flex-start;
+                gap: 1rem;
+                padding: var(--padding-1);
+                padding-inline-start: 0.1vw;
+
+                img {
+                    border-radius: 50%;
+                    width: 4vw;
+                    min-width: 40px;
+                    aspect-ratio: 1;
+                }
+
+                .options {
+                    margin-inline-start: auto;
+                    font-size: 2rem;
+                }
+    
+                .profileImg {
+    
+                }
+    
+                .grid {
+                    gap : 0;
+    
+                    .flex {
+                        gap: min(2vw,1rem);
+                    }
+                }
+            }
+
+            .postedMedia {
+                width: 100%;
+            }
+
+            .buttons {
+                justify-content: flex-start;
+                gap: min(3vw,22px);
+                padding: var(--padding-1);
+
+                svg:last-of-type {
+                    margin-inline-start: auto;
+                }
+            }
+
+            .postedText {
+
+            }
+
+            .area-wrapper {
+                padding: var(--padding-1);
+                
+                textarea {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    border-bottom: 1px solid;
+                    height: min(8vw,3rem);
+                    line-height: 1;
+                    padding: var(--padding-1);
+                }
+            }
+        }
+    }
+
+}
+
+
+//** UTILITY CLASSES
 .grid {
     display: grid;
     justify-items: stretch;
@@ -91,4 +241,9 @@ body {
     align-items: center;
 }
 
+#logOutBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 

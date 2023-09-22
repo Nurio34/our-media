@@ -1,0 +1,82 @@
+@media (min-width:800px) {
+    
+    body#user {
+
+        nav {
+            
+            &.permenent {
+                position: fixed;
+                bottom: unset;
+                left: 0;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap : 1vh;
+                width: unset;
+                height: 100vh;
+                padding-block-start: 4vh;
+            }
+    
+            &.max800show {
+                display: none;
+    
+                .searchWrapper {
+
+    
+                    svg {
+
+                    }
+    
+                    #searchInp {
+
+                    }
+                }
+            }
+    
+            .max800none {
+                display: block;
+            }
+    
+            .btnGroup {
+                position: relative;
+                width: 3rem;
+                aspect-ratio: 1;
+                border-radius: 1rem;
+
+                display:grid;
+                place-content: center;
+
+                &:hover {
+                    background-color: lightgray;
+                    transform: unset;
+                }
+
+                &:hover p {
+                    display: block;
+                }
+
+                p {
+                    position: absolute;
+                    top: 50%; left: 200% ; transform: translate(0%,-50%);
+                    box-shadow: var(--box-shadow-1);
+                    width: max-content;
+                    background-color: white;
+                    padding:var(--padding-1);
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 50%; left: 0; transform: translate(-50%,-50%);
+                        box-shadow: -1px 0px black;
+                        padding: 0.2rem;
+                        border-radius: 40%;
+                        background-color: white;
+                    }
+                }
+            }
+    
+            img {
+
+            }
+        }
+    }
+}

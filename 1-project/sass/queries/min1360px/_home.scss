@@ -1,0 +1,91 @@
+@media (min-width:1360px) {
+    
+    body#user {
+
+        nav {
+            
+            &.permenent {
+                align-items: center;
+                width: 17vw;
+                gap: 2vh;
+
+                .logo {
+                    align-self: flex-start;
+                }
+
+                .active {
+                    font-weight: 900;
+                    font-size: 1.3rem;
+                }
+
+            }
+    
+
+            &.max800show {
+                display: none;
+    
+                .searchWrapper {
+
+    
+                    svg {
+
+                    }
+    
+                    #searchInp {
+
+                    }
+                }
+            }
+    
+            .max800none {
+                display: block;
+            }
+    
+            .btnGroup {
+                position: relative;
+                width: 100%;
+                aspect-ratio: unset;
+                border-radius: 0.6vw;
+                padding: var(--padding-1);
+                padding-inline-start: 0.5vw;
+
+                display:flex;
+                place-content: unset;
+                justify-content: flex-start;
+                gap: 0.6vw;
+
+                // background-color: gray;
+
+                &:hover {
+                    background-color: lightgray;
+                }
+
+                &:hover p {
+                    display: block;
+                }
+
+                p {
+                    display: block;
+                    position: unset;
+                    top: unset; left: unset ; transform: unset;
+                    box-shadow: unset;
+                    width: unset;
+                    background-color: unset;
+                    padding:unset;
+
+                    &::before {
+                        content: "";
+                        position: unset;
+                        top: unset; left: unset; transform: unset;
+                        box-shadow: unsetk;
+                        padding: unset;
+                    }
+                }
+            }
+    
+            img {
+
+            }
+        }
+    }
+}

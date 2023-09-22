@@ -263,8 +263,8 @@ template {
   --box-shadow-1: 0 0 5px 1px black;
   --box-shadow-2: 0 0 10px 2px black;
   --box-shadow-3: 0 0 15px 3px black;
-  --padding-1: 0.2rem 0.6rem;
-  --padding-2: 1rem;
+  --padding-1: min(1vw,6px) min(4vw,30px);
+  --padding-2: min(5vw,2rem);
   --border-radius-1: 0.2rem;
   --border-radius-2: 0.6rem;
   --border-radius-3: 1rem;
@@ -282,7 +282,8 @@ template {
   --body: black;
 }
 
-body {
+body#login,
+body#register {
   background-color: rgb(180, 180, 255);
   display: grid;
   justify-content: center;
@@ -291,36 +292,151 @@ body {
   text-align: center;
   font-family: var(--ff-Franklin);
 }
-body form {
+body#login form,
+body#register form {
   box-shadow: var(--box-shadow-1), var(--box-shadow-2);
   padding: var(--padding-2);
   border-radius: var(--border-radius-3);
   width: var(--width-form);
 }
-body form input {
+body#login form input,
+body#register form input {
   padding: var(--padding-1);
   border-radius: var(--border-radius-1);
   width: 100%;
 }
-body form .warning-info {
+body#login form .warning-info,
+body#register form .warning-info {
   font-size: var(--fs-1);
   font-family: var(--ff-Segoe);
 }
-body form #submitBtn {
+body#login form #submitBtn,
+body#register form #submitBtn {
   background-color: var(--bg-Blue);
   color: var(--txt-clr-White);
 }
-body form a {
+body#login form a,
+body#register form a {
   justify-self: center;
 }
-body section {
+body#login section,
+body#register section {
   padding: var(--padding-2);
   box-shadow: var(--box-shadow-1);
   border-radius: var(--border-radius-2);
 }
-body section button {
+body#login section button,
+body#register section button {
   padding: var(--padding-1);
   border-radius: var(--border-radius-1);
+}
+
+body#user nav {
+  background-color: white;
+  box-shadow: var(--box-shadow-1);
+  width: 100vw;
+  padding: var(--padding-1);
+}
+body#user nav.permenent {
+  position: fixed;
+  bottom: 0;
+  justify-content: space-around;
+}
+body#user nav.max800show {
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  gap: min(2vw, 2rem);
+}
+body#user nav.max800show .searchWrapper {
+  position: relative;
+  width: min(100vw, 562px);
+}
+body#user nav.max800show .searchWrapper svg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(50%, -50%);
+  color: gray;
+}
+body#user nav.max800show .searchWrapper #searchInp {
+  padding: var(--padding-1);
+  border-radius: var(--border-radius-1);
+  width: 100%;
+  background-color: lightgray;
+  border: none;
+}
+body#user nav .max800none {
+  display: none;
+}
+body#user nav .btnGroup {
+  transition: 0.2s;
+  cursor: pointer;
+}
+body#user nav .btnGroup:hover {
+  transform: scale(1.1);
+}
+body#user nav .btnGroup p {
+  display: none;
+}
+body#user nav img {
+  width: 30px;
+  border-radius: 50%;
+}
+body#user main {
+  padding: var(--padding-2);
+  padding-block-start: 4rem;
+  display: grid;
+  justify-content: center;
+  gap: 3vh;
+}
+body#user main .wrapper {
+  width: max(30vw, calc, 375px);
+}
+body#user main .wrapper .profile-wrapper {
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: var(--padding-1);
+  padding-inline-start: 0.1vw;
+}
+body#user main .wrapper .profile-wrapper img {
+  border-radius: 50%;
+  width: 4vw;
+  min-width: 40px;
+  aspect-ratio: 1;
+}
+body#user main .wrapper .profile-wrapper .options {
+  margin-inline-start: auto;
+  font-size: 2rem;
+}
+body#user main .wrapper .profile-wrapper .grid {
+  gap: 0;
+}
+body#user main .wrapper .profile-wrapper .grid .flex {
+  gap: min(2vw, 1rem);
+}
+body#user main .wrapper .postedMedia {
+  width: 100%;
+}
+body#user main .wrapper .buttons {
+  justify-content: flex-start;
+  gap: min(3vw, 22px);
+  padding: var(--padding-1);
+}
+body#user main .wrapper .buttons svg:last-of-type {
+  margin-inline-start: auto;
+}
+body#user main .wrapper .area-wrapper {
+  padding: var(--padding-1);
+}
+body#user main .wrapper .area-wrapper textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid;
+  height: min(8vw, 3rem);
+  line-height: 1;
+  padding: var(--padding-1);
 }
 
 .grid {
@@ -333,6 +449,12 @@ body section button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#logOutBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 button {
@@ -383,4 +505,118 @@ button:active {
   bottom: -0.2rem;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media (min-width: 800px) {
+  body#user nav.permenent {
+    position: fixed;
+    bottom: unset;
+    left: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1vh;
+    width: unset;
+    height: 100vh;
+    padding-block-start: 4vh;
+  }
+  body#user nav.max800show {
+    display: none;
+  }
+  body#user nav .max800none {
+    display: block;
+  }
+  body#user nav .btnGroup {
+    position: relative;
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 1rem;
+    display: grid;
+    place-content: center;
+  }
+  body#user nav .btnGroup:hover {
+    background-color: lightgray;
+    transform: unset;
+  }
+  body#user nav .btnGroup:hover p {
+    display: block;
+  }
+  body#user nav .btnGroup p {
+    position: absolute;
+    top: 50%;
+    left: 200%;
+    transform: translate(0%, -50%);
+    box-shadow: var(--box-shadow-1);
+    width: max-content;
+    background-color: white;
+    padding: var(--padding-1);
+  }
+  body#user nav .btnGroup p::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    box-shadow: -1px 0px black;
+    padding: 0.2rem;
+    border-radius: 40%;
+    background-color: white;
+  }
+}
+@media (min-width: 1360px) {
+  body#user nav.permenent {
+    align-items: center;
+    width: 17vw;
+    gap: 2vh;
+  }
+  body#user nav.permenent .logo {
+    align-self: flex-start;
+  }
+  body#user nav.permenent .active {
+    font-weight: 900;
+    font-size: 1.3rem;
+  }
+  body#user nav.max800show {
+    display: none;
+  }
+  body#user nav .max800none {
+    display: block;
+  }
+  body#user nav .btnGroup {
+    position: relative;
+    width: 100%;
+    aspect-ratio: unset;
+    border-radius: 0.6vw;
+    padding: var(--padding-1);
+    padding-inline-start: 0.5vw;
+    display: flex;
+    place-content: unset;
+    justify-content: flex-start;
+    gap: 0.6vw;
+  }
+  body#user nav .btnGroup:hover {
+    background-color: lightgray;
+  }
+  body#user nav .btnGroup:hover p {
+    display: block;
+  }
+  body#user nav .btnGroup p {
+    display: block;
+    position: unset;
+    top: unset;
+    left: unset;
+    transform: unset;
+    box-shadow: unset;
+    width: unset;
+    background-color: unset;
+    padding: unset;
+  }
+  body#user nav .btnGroup p::before {
+    content: "";
+    position: unset;
+    top: unset;
+    left: unset;
+    transform: unset;
+    box-shadow: unsetk;
+    padding: unset;
+  }
 }/*# sourceMappingURL=style.min.css.map */

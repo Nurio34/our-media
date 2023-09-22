@@ -16,9 +16,9 @@ const { StatusCodes } = require("http-status-codes")
 
 const login = async(req,res) => {
 
-    try {
 
         const {userInfo,password} = req.body
+
 
             if(!userInfo || !password) {
                 throw new BadRequestError("Please provide email and password")
@@ -32,18 +32,16 @@ const login = async(req,res) => {
 
         const arePasswordsMatched = await user.comparePasswords(password)
 
+
             if(!arePasswordsMatched) {
                 throw new UnauthenticatedError("Password is incorrect")
             }
 
-        const token = await user.createToken()
+        const token = await user.createToken("token")
 
-            res.status(StatusCodes.OK).json({user,arePasswordsMatched,token})
+            res.status(StatusCodes.OK).json({token,arePasswordsMatched})
 
-    } catch (error) {
 
-        res.status(500).send(error)
-    }
 }
 
     //** REGİSTER FORMU SUBMİTLENDİĞİNDE */

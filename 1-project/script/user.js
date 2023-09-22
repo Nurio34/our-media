@@ -42,8 +42,14 @@
                 Authorization : `Bearer ${token}`
             }
         })
+        const datas = resp.data
+        
 
-            console.log(resp.data);
+        const main = document.querySelector("main")
+
+            main.innerHTML = datas.forEach(data=>{
+                
+            })
 
     }, 1000);
 
