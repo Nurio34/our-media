@@ -1,14 +1,12 @@
 [
     {
-        "userId" : "650cefb21e7ff3ed5a81f681",
-        "message" : "message one"
+        "userId" : "650ef06cf886abc6a8d91047",
+        "postMedia" : "URL of posted media 1",
+        "message" : "Learn how to display popular posts Extended Version by Nuri Salih ERsoy"
     },
     {
-        "userId" : "650cefb21e7ff3ed5a81f681",
-        "message" : "message two"
-    },
-    {
-        "userId" : "650cefb21e7ff3ed5a81f681",
-        "message" : "message three"
+        "userId" : "650ef06cf886abc6a8d91047",
+        "postMedia" : "URL of posted media 2",
+        "message" : "Share the post above"
     }
 ]

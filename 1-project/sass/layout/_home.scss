@@ -149,7 +149,7 @@ body#user {
         }
     }
 
-    main {
+    main,aside {
         padding: var(--padding-2);
         padding-block-start: 4rem;
         display: grid;
@@ -157,8 +157,8 @@ body#user {
         gap: min(3vh);
 
 
-        .wrapper {
-            width: max(30vw,calc,375px);
+        .postsWrapper {
+            width: max(30vw,375px);
 
             .profile-wrapper {
                 justify-content: flex-start;
@@ -223,6 +223,50 @@ body#user {
                 }
             }
         }
+
+        .usersWrapper {
+            display: grid;
+            gap: 1vh;
+            width:25vw;
+
+            .wrapper.flex {
+                background-color: rgba(211, 211, 211, 0.3);
+                padding: max(1vh,0.5rem) max(1vw,0.5rem);
+                border-radius: max(0.5vw,0.5rem);
+
+                gap: max(1vw,1rem);
+
+                img {
+                    border-radius: 50%;
+                    width: 4vw;
+                    min-width: 40px;
+                    aspect-ratio: 1;
+                }
+
+                .grid {
+                    gap:unset;
+
+                    .flex {
+                        justify-content: flex-start;
+                        gap: 1vw;
+                    }
+                }
+
+                .followBtn {
+                    margin-inline-start: 2vw;
+                    padding: min(0.5vh,1rem) max(1vw);
+                    background-color: var(--bg-Blue);
+                    color: var(--txt-clr-White);
+                }
+            }
+        }
+    }
+
+    aside {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
     }
 
 }

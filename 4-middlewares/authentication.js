@@ -14,9 +14,8 @@ const auth = async(req,res,next)=> {
         const token = authorize.split(" ")[1]
 
         const payload = jwt.verify(token,process.env.JWT_SECRET)
-    
-        req.user = {userId : payload.userId
-}
+
+            req.user = {userId : payload.userId, userName : payload.userName, profilePic: payload.profilePic, quote: payload.quote}
     } catch (error) {
         throw new UnauthenticatedError("Error inauthMiddleware with catch")
     }

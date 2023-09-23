@@ -383,53 +383,53 @@ body#user nav img {
   width: 30px;
   border-radius: 50%;
 }
-body#user main {
+body#user main, body#user aside {
   padding: var(--padding-2);
   padding-block-start: 4rem;
   display: grid;
   justify-content: center;
   gap: 3vh;
 }
-body#user main .wrapper {
-  width: max(30vw, calc, 375px);
+body#user main .postsWrapper, body#user aside .postsWrapper {
+  width: max(30vw, 375px);
 }
-body#user main .wrapper .profile-wrapper {
+body#user main .postsWrapper .profile-wrapper, body#user aside .postsWrapper .profile-wrapper {
   justify-content: flex-start;
   gap: 1rem;
   padding: var(--padding-1);
   padding-inline-start: 0.1vw;
 }
-body#user main .wrapper .profile-wrapper img {
+body#user main .postsWrapper .profile-wrapper img, body#user aside .postsWrapper .profile-wrapper img {
   border-radius: 50%;
   width: 4vw;
   min-width: 40px;
   aspect-ratio: 1;
 }
-body#user main .wrapper .profile-wrapper .options {
+body#user main .postsWrapper .profile-wrapper .options, body#user aside .postsWrapper .profile-wrapper .options {
   margin-inline-start: auto;
   font-size: 2rem;
 }
-body#user main .wrapper .profile-wrapper .grid {
+body#user main .postsWrapper .profile-wrapper .grid, body#user aside .postsWrapper .profile-wrapper .grid {
   gap: 0;
 }
-body#user main .wrapper .profile-wrapper .grid .flex {
+body#user main .postsWrapper .profile-wrapper .grid .flex, body#user aside .postsWrapper .profile-wrapper .grid .flex {
   gap: min(2vw, 1rem);
 }
-body#user main .wrapper .postedMedia {
+body#user main .postsWrapper .postedMedia, body#user aside .postsWrapper .postedMedia {
   width: 100%;
 }
-body#user main .wrapper .buttons {
+body#user main .postsWrapper .buttons, body#user aside .postsWrapper .buttons {
   justify-content: flex-start;
   gap: min(3vw, 22px);
   padding: var(--padding-1);
 }
-body#user main .wrapper .buttons svg:last-of-type {
+body#user main .postsWrapper .buttons svg:last-of-type, body#user aside .postsWrapper .buttons svg:last-of-type {
   margin-inline-start: auto;
 }
-body#user main .wrapper .area-wrapper {
+body#user main .postsWrapper .area-wrapper, body#user aside .postsWrapper .area-wrapper {
   padding: var(--padding-1);
 }
-body#user main .wrapper .area-wrapper textarea {
+body#user main .postsWrapper .area-wrapper textarea, body#user aside .postsWrapper .area-wrapper textarea {
   width: 100%;
   border: none;
   outline: none;
@@ -437,6 +437,42 @@ body#user main .wrapper .area-wrapper textarea {
   height: min(8vw, 3rem);
   line-height: 1;
   padding: var(--padding-1);
+}
+body#user main .usersWrapper, body#user aside .usersWrapper {
+  display: grid;
+  gap: 1vh;
+  width: 25vw;
+}
+body#user main .usersWrapper .wrapper.flex, body#user aside .usersWrapper .wrapper.flex {
+  background-color: rgba(211, 211, 211, 0.3);
+  padding: max(1vh, 0.5rem) max(1vw, 0.5rem);
+  border-radius: max(0.5vw, 0.5rem);
+  gap: max(1vw, 1rem);
+}
+body#user main .usersWrapper .wrapper.flex img, body#user aside .usersWrapper .wrapper.flex img {
+  border-radius: 50%;
+  width: 4vw;
+  min-width: 40px;
+  aspect-ratio: 1;
+}
+body#user main .usersWrapper .wrapper.flex .grid, body#user aside .usersWrapper .wrapper.flex .grid {
+  gap: unset;
+}
+body#user main .usersWrapper .wrapper.flex .grid .flex, body#user aside .usersWrapper .wrapper.flex .grid .flex {
+  justify-content: flex-start;
+  gap: 1vw;
+}
+body#user main .usersWrapper .wrapper.flex .followBtn, body#user aside .usersWrapper .wrapper.flex .followBtn {
+  margin-inline-start: 2vw;
+  padding: min(0.5vh, 1rem) 1vw;
+  background-color: var(--bg-Blue);
+  color: var(--txt-clr-White);
+}
+body#user aside {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
 }
 
 .grid {
@@ -618,5 +654,8 @@ button:active {
     transform: unset;
     box-shadow: unsetk;
     padding: unset;
+  }
+  body#user aside {
+    display: block;
   }
 }/*# sourceMappingURL=style.min.css.map */

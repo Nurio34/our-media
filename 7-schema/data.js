@@ -7,6 +7,9 @@ const DataSchema = new mongoose.Schema(
             type : mongoose.Types.ObjectId,
             required : [true, "Unauthenticated by mongoose/userId validation"]
         },
+        postedMedia : {
+            type : String,
+        },
         message : {
             type : String,
         }

@@ -6,8 +6,8 @@ const datas = require("./data.json")
 
 const start = async()=>{
     try {
-        await connectDB(process.env.MONGO_URI)
-        await DataSchema.deleteMany()
+        connectDB(process.env.MONGO_URI)
+        // await DataSchema.deleteMany()
         await DataSchema.create(datas)
         process.exit(0) 
     } catch (error) {

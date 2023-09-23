@@ -26,9 +26,9 @@ const login = async(req,res) => {
 
         const user = await AuthSchema.findOne({email:userInfo})
 
-            if(!userInfo) {
-                throw new UnauthenticatedError("Something wrong with the email. Check it")
-            }
+            // if(!userInfo) {
+            //     throw new UnauthenticatedError("Something wrong with the email. Check it")
+            // }
 
         const arePasswordsMatched = await user.comparePasswords(password)
 
@@ -50,7 +50,7 @@ const register = async(req,res) => {
 
     try {
 
-        const {userMailOrPhone, fullName, userName, password} = req.body
+        const {userMailOrPhone, fullName, userName, password,} = req.body
 
         const userData = {
             fullName : fullName,
@@ -64,9 +64,11 @@ const register = async(req,res) => {
                 userData.phoneNumber = userMailOrPhone
             }
 
+
         const user = await AuthSchema.create(userData)
-        
-        const token = user.createToken()
+        console.log(user);
+
+        const token = await user.createToken()
 
             res.status(StatusCodes.OK).json(token)
 

@@ -7,7 +7,7 @@ const AuthSchema = new mongoose.Schema({
     email:{
         type: String,
         match: [/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                'Please provide a valid email',
+                'Please provide a valid email'
         ],
         unique: [true, "This email already exists"]
     },
@@ -33,6 +33,14 @@ const AuthSchema = new mongoose.Schema({
         // match : []
         minlength: [8,"More than 8 characters good for your security"]
     },
+    profilePic: {
+        type:String,
+        default : "pfofile pic URL"
+    },
+    quote:{
+        type:String,
+        default : "Live yo life"
+    }
 },
 {timestamps : true}
 )
@@ -48,7 +56,7 @@ AuthSchema.methods.comparePasswords = async function(logedPassword) {
 }
 
 AuthSchema.methods.createToken = function() {
-    return jwt.sign({userId : this._id},process.env.JWT_SECRET)
+    return jwt.sign({userId:this._id,userName : this.userName, profilePic: this.profilePic, quote:this.quote},process.env.JWT_SECRET)
 }
 
 module.exports = mongoose.model("authdatas", AuthSchema)

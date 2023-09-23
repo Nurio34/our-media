@@ -1,6 +1,6 @@
 
+    //** USER SAYFASINI AÇMAK İÇİN */
 const path = require("path")
-const DataSchema = require("../7-schema/data")
 
 const userPage = async(req,res) => {
 
@@ -8,20 +8,48 @@ const userPage = async(req,res) => {
         
         const filePath = path.join(__dirname, "../1-project/html/user.html")
             res.status(200).sendFile(filePath)
+
     } catch (error) {
         res.status(500).send("Error Page")
     }
 }
 
+    //** AUTH ve USER DATALARLA İLGİLİ FONKSİYONLAR */
+const DataSchema = require("../7-schema/data")
+const AuthSchema = require("../7-schema/auth")
+
 const getAllData = async(req,res)=> {
 
     try {
         
-        const userID = req.user
+        //** DECODED TOKEN'DAN ELDE ETTİĞİMİZ PAYLOAD */
+        const {userId,userName,profilePic,quote} = req.user
 
-            const obtainedDatas = await DataSchema.find(userID)
+        const authData = {
+            userName : userName,
+            profilePic : profilePic,
+            quote : quote
+        }
 
-        res.status(200).json(obtainedDatas)
+        //** BAŞARILI GİRİŞ YAPMIŞ KİŞİYE AİT PAYLAŞIM DATALARI */
+        let data = DataSchema.find({userId})
+
+            //** DATAYI SORTLAMA SEÇENEKLERİ */
+            data = data.sort("-createdAt")
+
+        data = await data
+        
+        //** AUTH DATADAKİ TÜM KİŞİLERE AİT DATALAR */
+        const authDatas = await AuthSchema.find()
+
+        //** PAYLOAD BİLGİLERİ ve PAYLAŞIM DATALARI İLE OLUŞTURULMUŞ DATA */
+        const userData = {
+            authData : authData,
+            postData : data,
+            authDatas : authDatas
+        }
+
+            res.status(200).json(userData)
 
     } catch (error) {
         res.status(500).send("Error Page while getAllData()")
